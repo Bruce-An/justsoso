@@ -1,0 +1,38 @@
+name: ZZU COMMUTE HELPER
+
+on:
+    workflow_dispatch:
+    schedule:
+    - cron: '0 20 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check
+        uses: actions/checkout@v2
+    
+      - name: Run
+        env:
+            UID: ${{secrets.UID}}
+            UPW: ${{secrets.UPW}}
+        run: bash ./script.sh $UID $UPW
+        
+      - name: 'Get Date'
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+      # 使用现成的发送邮箱的GitHub action来发送邮件
+      - name: 'Send mail'
+        uses: dawidd6/action-send-mail@master
+        with:
+          # 这些是发送邮件需要配置的参数，更多详细的说明请访问具体的仓库
+          server_address: smtp.qq.com
+          server_port: 465
+          # 这些sectret的环境变量需要配置在setting中的secret下
+          username: 392340250@qq.com
+          password: rhncrntfklwmcbdb
+          subject: 健康上报 (${{env.REPORT_DATE}})
+          html_body: file://result.html
+          to: mauhincc@outlook.com
+          from: 郑州大学数据中台
+          convert_markdown: true
+          content_type: txt/html 
