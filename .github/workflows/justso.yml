@@ -28,11 +28,11 @@ jobs:
           server_address: smtp.qq.com
           server_port: 465
           # 这些sectret的环境变量需要配置在setting中的secret下
-          username: 392340250@qq.com
-          password: rhncrntfklwmcbdb
-          subject: 健康上报 (${{env.REPORT_DATE}})
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: 每日健康上报 (${{env.REPORT_DATE}})
           html_body: file://result.html
-          to: mauhincc@outlook.com
+          to: ${{secrets.RECEIVE_MAIL}}
           from: 郑州大学数据中台
           convert_markdown: true
           content_type: txt/html 
