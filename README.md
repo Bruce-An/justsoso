@@ -27,7 +27,7 @@
    * 多人模式与单人模式的添加方法相同，具体格式为`学号,学号,学号`和`密码,密码,密码`，例如：`201884160000,201884160001`和`12345678,12345678`(**注意：逗号为英文标点，使用中文标点会导致脚本运行失败**)。
 ### 3.启用 Actions
    * 点击上方的`Actions`，点击绿色按钮确认启用`Actions`功能。
-   * 点击左侧`ZZU COMMUTE HELPER`，点击`Run workflow`，运行一次项目。
+   * 点击左侧`justsoso`，点击`Run workflow`，运行一次项目。
    ![actions.PNG](https://i.loli.net/2020/11/24/HrQoCwFkgcAYjps.png)
 
 项目部署完毕后，可以在自己填写的邮箱中查看打卡成功的邮件推送，可以在`Actions`页面点击`View workflow file`查看结果。
